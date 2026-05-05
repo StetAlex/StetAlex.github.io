@@ -1,348 +1,659 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mărimi Fizice Electrice și Magnetice</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        h1 {
-            text-align: center;
-            color: #2c3e50;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            vertical-align: middle;
-            text-align: center;
-            font-weight: bold;
-        }
-        th {
-            background-color: #3498db;
-            color: white;
-            font-weight: bold;
-        }
-        .group-0 { background-color: #e0f7fa; }
-        .group-1 { background-color: #e8f5e9; }
-        .group-2 { background-color: #fff9c4; }
-        .group-3 { background-color: #ffe0b2; }
-        .group-4 { background-color: #f3e5f5; }
-        .group-5 { background-color: #e1f5fe; }
-        .group-6 { background-color: #ffcdd2; }
-        .group-7 { background-color: #dcedc8; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plan de Lecție – Educație Tehnologică, Clasa a V-a</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        math {
-            font-size: 1.1em;
-            display: inline-block;
-        }
-    </style>
+  :root {
+    --navy:   #1b3a5c;
+    --teal:   #2e7d6e;
+    --gold:   #b8902a;
+    --light:  #f7f5f0;
+    --border: #c8c0b0;
+    --text:   #1e1e1e;
+    --muted:  #5a5245;
+    --row-a:  #f0ede8;
+    --row-b:  #ffffff;
+    --head-bg:#e8e2d8;
+  }
+
+  @media print {
+    body { background: #fff; }
+    .page { box-shadow: none; max-width: 100%; padding: 18mm 18mm 18mm 18mm; }
+    .cover-band { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: #e8e3db;
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  .page {
+    max-width: 1120px;
+    margin: 40px auto;
+    background: #fff;
+    box-shadow: 0 4px 32px rgba(0,0,0,.18);
+  }
+
+  /* ── Cover band ── */
+  .cover-band {
+    background: var(--navy);
+    padding: 36px 48px 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover-band::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0; bottom: 0;
+    width: 6px;
+    background: var(--gold);
+  }
+  .cover-band::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 48px; right: 48px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold) 0%, transparent 100%);
+    opacity: .5;
+  }
+  .cover-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.55);
+    margin-bottom: 10px;
+  }
+  .cover-title {
+    font-family: 'EB Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.35;
+    max-width: 760px;
+  }
+  .cover-sub {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 13px;
+    color: rgba(255,255,255,.6);
+    margin-top: 8px;
+    font-weight: 300;
+    letter-spacing: .5px;
+  }
+
+  /* ── Meta grid ── */
+  .meta-section {
+    background: var(--light);
+    border-bottom: 1px solid var(--border);
+    padding: 22px 48px;
+  }
+  .meta-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px 32px;
+  }
+  .meta-item { display: flex; flex-direction: column; gap: 2px; }
+  .meta-key {
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .meta-val {
+    font-size: 13.5px;
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  /* ── Body area ── */
+  .body-area { padding: 32px 48px 40px; }
+
+  /* ── Section blocks ── */
+  .section { margin-bottom: 28px; }
+  .section-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--teal);
+    border-left: 3px solid var(--teal);
+    padding-left: 10px;
+    margin-bottom: 10px;
+  }
+  .section-body {
+    background: var(--light);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 14px 18px;
+  }
+
+  /* Objectives */
+  .objectives { display: flex; flex-direction: column; gap: 8px; }
+  .objective {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .obj-tag {
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--navy);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'EB Garamond', serif;
+    margin-top: 1px;
+  }
+  .obj-text { font-size: 13.5px; line-height: 1.5; }
+
+  /* Competencies list */
+  .comp-list { list-style: none; }
+  .comp-list li {
+    position: relative;
+    padding-left: 18px;
+    margin-bottom: 5px;
+    font-size: 13.5px;
+  }
+  .comp-list li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.3;
+  }
+
+  /* Strategies grid */
+  .strat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .strat-col {
+    padding: 12px 16px;
+    border-right: 1px solid var(--border);
+  }
+  .strat-col:last-child { border-right: none; }
+  .strat-col-title {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+  .strat-col ul { list-style: none; }
+  .strat-col ul li {
+    font-size: 12.5px;
+    padding-left: 12px;
+    position: relative;
+    margin-bottom: 3px;
+  }
+  .strat-col ul li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: var(--muted);
+  }
+
+  /* ── Main table ── */
+  .table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12.5px;
+    table-layout: fixed;
+  }
+  thead th {
+    background: var(--navy);
+    color: #fff;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 12px 10px;
+    text-align: center;
+    border-right: 1px solid rgba(255,255,255,.15);
+    vertical-align: middle;
+  }
+  thead th:last-child { border-right: none; }
+
+  /* column widths */
+  col.c-seq     { width: 14%; }
+  col.c-obj     { width: 9%; }
+  col.c-content { width: 32%; }
+  col.c-strat   { width: 19%; }
+  col.c-time    { width: 7%; }
+  col.c-eval    { width: 19%; }
+
+  tbody tr:nth-child(odd)  td { background: var(--row-a); }
+  tbody tr:nth-child(even) td { background: var(--row-b); }
+  tbody td {
+    padding: 11px 10px;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  tbody td:last-child { border-right: none; }
+
+  .seq-name {
+    font-weight: 700;
+    color: var(--navy);
+    font-size: 12px;
+    margin-bottom: 2px;
+  }
+  .seq-num {
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .obj-pill {
+    display: inline-block;
+    background: var(--navy);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 20px;
+    margin: 2px 1px;
+  }
+
+  .time-cell {
+    text-align: center;
+    font-weight: 700;
+    color: var(--navy);
+    font-size: 13px;
+  }
+  .time-unit {
+    font-size: 9px;
+    font-weight: 400;
+    color: var(--muted);
+    display: block;
+  }
+
+  .strat-line { margin-bottom: 4px; }
+  .strat-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 1px;
+  }
+
+  em { color: var(--teal); font-style: italic; }
+
+  /* ── Footer strip ── */
+  .footer-strip {
+    background: var(--light);
+    border-top: 1px solid var(--border);
+    padding: 16px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-strip .bib {
+    font-size: 11px;
+    color: var(--muted);
+    max-width: 700px;
+  }
+  .footer-strip .bib strong {
+    font-weight: 700;
+    color: var(--text);
+  }
+  .footer-sig {
+    text-align: right;
+    font-size: 11px;
+    color: var(--muted);
+    white-space: nowrap;
+    margin-left: 32px;
+  }
+</style>
 </head>
 <body>
-    <h1>Tabel cu Mărimi Fizice Electrice și Magnetice</h1>
-    <table>
-        <thead>
+<div class="page">
+
+  <!-- Cover -->
+  <div class="cover-band">
+    <div class="cover-label">Plan de Lecție</div>
+    <div class="cover-title">Elemente de desen geometric aplicate la elemente de peisagistică și aranjamente florale</div>
+    <div class="cover-sub">Educație Tehnologică și Aplicații Practice &nbsp;·&nbsp; Clasa a V-a &nbsp;·&nbsp; Lecție de transmitere și însușire de noi cunoștințe</div>
+  </div>
+
+  <!-- Meta -->
+  <div class="meta-section">
+    <div class="meta-grid">
+      <div class="meta-item">
+        <span class="meta-key">Unitatea de învățământ</span>
+        <span class="meta-val">_________________________</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-key">Profesor</span>
+        <span class="meta-val">_________________________</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-key">Data</span>
+        <span class="meta-val">_________________________</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-key">Clasa</span>
+        <span class="meta-val">a V-a</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-key">Disciplina</span>
+        <span class="meta-val">Educație Tehnologică și Aplicații Practice</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-key">Aria curriculară</span>
+        <span class="meta-val">Tehnologii</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Body -->
+  <div class="body-area">
+
+    <!-- Competențe generale -->
+    <div class="section">
+      <div class="section-title">Competențe generale</div>
+      <div class="section-body">
+        <ul class="comp-list">
+          <li>Realizarea practică de produse utile și/sau de lucrări creative pentru activități curente și valorificarea acestora.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Competențe specifice -->
+    <div class="section">
+      <div class="section-title">Competențe specifice</div>
+      <div class="section-body">
+        <ul class="comp-list">
+          <li>Executarea unor produse simple/machete pornind de la o fișă tehnologică realizată cu sprijin din partea profesorului.</li>
+          <li>Utilizarea achizițiilor de bază din matematică și științe pentru realizarea unui produs, în condiții de eficiență.</li>
+          <li>Aprecierea calității produselor realizate din perspectiva reinvestirii beneficiilor obținute.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Obiective operaționale -->
+    <div class="section">
+      <div class="section-title">Obiective operaționale</div>
+      <div class="section-body">
+        <div class="objectives">
+          <div class="objective">
+            <div class="obj-tag">O1</div>
+            <div class="obj-text">Să traseze drepte (paralele, perpendiculare, înclinate) cu ajutorul instrumentelor de desenat (riglă, echer, raportor).</div>
+          </div>
+          <div class="objective">
+            <div class="obj-tag">O2</div>
+            <div class="obj-text">Să construiască figuri geometrice bidimensionale folosindu-se de instrumente de desenat (compas, riglă, echer, raportor).</div>
+          </div>
+          <div class="objective">
+            <div class="obj-tag">O3</div>
+            <div class="obj-text">Să recunoască elemente de desen geometric și de peisagistică dintr-un aranjament floral sau schiță de grădină dat/ă.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Strategii didactice -->
+    <div class="section">
+      <div class="section-title">Strategii didactice</div>
+      <div class="strat-grid">
+        <div class="strat-col" style="background:var(--row-a)">
+          <div class="strat-col-title">Metode și procedee</div>
+          <ul>
+            <li>Conversația euristică</li>
+            <li>Explicația</li>
+            <li>Demonstrația</li>
+            <li>Exercițiul practic</li>
+            <li>Observația</li>
+          </ul>
+        </div>
+        <div class="strat-col" style="background:var(--row-b)">
+          <div class="strat-col-title">Materiale și mijloace</div>
+          <ul>
+            <li>Tablă, cretă / marker</li>
+            <li>Instrumente de desen (riglă, echer, raportor, compas)</li>
+            <li>Calculator, videoproiector, prezentare PPT</li>
+            <li>Fișe de lucru, manualul</li>
+          </ul>
+        </div>
+        <div class="strat-col" style="background:var(--row-a)">
+          <div class="strat-col-title">Forme de organizare</div>
+          <ul>
+            <li>Frontal</li>
+            <li>Individual</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main table -->
+    <div class="section">
+      <div class="section-title">Desfășurarea lecției</div>
+      <div class="table-wrap">
+        <table>
+          <colgroup>
+            <col class="c-seq">
+            <col class="c-obj">
+            <col class="c-content">
+            <col class="c-strat">
+            <col class="c-time">
+            <col class="c-eval">
+          </colgroup>
+          <thead>
             <tr>
-                <th>Grupare</th>
-                <th>Nr. Crt.</th>
-                <th>Notație</th>
-                <th>Nume</th>
-                <th>Unitate SI</th>
-                <th>Formulă</th>
+              <th>Secvențele / Etapele lecției</th>
+              <th>Ob. Op.</th>
+              <th>Conținut – Scenariu didactic</th>
+              <th>Strategii didactice</th>
+              <th>Timp</th>
+              <th>Feedback și evaluare</th>
             </tr>
-        </thead>
-        <tbody>
-            <tr class="group-0">
-                <td rowspan="4">Mărimi electrice de bază</td>
-                <td>1</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi></mrow><annotation encoding="application/x-tex">q</annotation></semantics></math></td>
-                <td>Sarcină electrică</td>
-                <td>C</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo>=</mo><mi>I</mi><mo>⋅</mo><mi>t</mi></mrow><annotation encoding="application/x-tex">q = I \cdot t</annotation></semantics></math></td>
+          </thead>
+          <tbody>
+
+            <tr>
+              <td>
+                <div class="seq-num">Etapa 1</div>
+                <div class="seq-name">Moment organizatoric</div>
+              </td>
+              <td style="text-align:center;">–</td>
+              <td>Se asigură climatul optim pentru desfășurarea activității: aerisirea sălii, așezarea elevilor în bănci, verificarea prezenței și a existenței materialelor necesare (instrumente de desen, caiete).</td>
+              <td>
+                <div class="strat-line"><span class="strat-label">Metodă</span>Conversația</div>
+                <div class="strat-line"><span class="strat-label">Mijloace</span>Catalog</div>
+                <div class="strat-line"><span class="strat-label">Organizare</span>Frontal</div>
+              </td>
+              <td class="time-cell">1<span class="time-unit">min</span></td>
+              <td>Observarea comportamentului verbal și nonverbal al elevilor.</td>
             </tr>
-            <tr class="group-0">
-                <td>2</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi></mrow><annotation encoding="application/x-tex">I</annotation></semantics></math></td>
-                <td>Intensitatea curentului electric</td>
-                <td>A</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mo>=</mo><mfrac><mi>U</mi><mi>Z</mi></mfrac></mrow><annotation encoding="application/x-tex">I = \frac{U}{Z}</annotation></semantics></math></td>
+
+            <tr>
+              <td>
+                <div class="seq-num">Etapa 2</div>
+                <div class="seq-name">Verificarea cunoștințelor anterioare</div>
+              </td>
+              <td style="text-align:center;">–</td>
+              <td>Profesorul desenează pe tablă tipuri de linii și unghiuri, solicitând elevilor să le identifice și să le denumească (voluntar sau nominalizat):<br>
+                <em>– linii: paralele, perpendiculare, concurente</em><br>
+                <em>– unghiuri: ascuțit, drept, obtuz, complementar, suplimentar</em><br>
+                <em>– figuri: pătrat, triunghi, cub</em><br>
+                Se discută caracteristicile fiecăreia, fixând cunoștințele necesare lecției noi.</td>
+              <td>
+                <div class="strat-line"><span class="strat-label">Metodă</span>Conversație, Observație, Explicație</div>
+                <div class="strat-line"><span class="strat-label">Mijloace</span>Tablă, cretă, riglă</div>
+                <div class="strat-line"><span class="strat-label">Organizare</span>Frontal</div>
+              </td>
+              <td class="time-cell">4<span class="time-unit">min</span></td>
+              <td>Chestionare orală; aprecieri verbale.</td>
             </tr>
-            <tr class="group-0">
-                <td>3</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>U</mi></mrow><annotation encoding="application/x-tex">U</annotation></semantics></math></td>
-                <td>Tensiune electrică</td>
-                <td>V</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>U</mi><mo>=</mo><mi>I</mi><mo>⋅</mo><mi>Z</mi></mrow><annotation encoding="application/x-tex">U = I \cdot Z</annotation></semantics></math></td>
+
+            <tr>
+              <td>
+                <div class="seq-num">Etapa 3</div>
+                <div class="seq-name">Captarea atenției</div>
+              </td>
+              <td style="text-align:center;"><span class="obj-pill">O3</span></td>
+              <td>Se proiectează imagini sugestive cu:<br>
+                <em>(a) designuri de grădini și parcuri</em> utilizând forme geometrice clare (dreptunghiuri, cercuri, linii drepte);<br>
+                <em>(b) aranjamente florale</em> moderne care integrează geometria în structura lor.<br>
+                Întrebare-problemă: <em>„Unde vedeți geometria în aceste imagini?"</em><br>
+                Răspuns dezirabil: elevi identifică liniile, cercurile, simetria în amenajările prezentate.</td>
+              <td>
+                <div class="strat-line"><span class="strat-label">Metodă</span>Observație, Conversație, Expunere</div>
+                <div class="strat-line"><span class="strat-label">Mijloace</span>Calculator, videoproiector, prezentare PPT</div>
+                <div class="strat-line"><span class="strat-label">Organizare</span>Frontal</div>
+              </td>
+              <td class="time-cell">4<span class="time-unit">min</span></td>
+              <td>Observarea comportamentului verbal și nonverbal al elevilor.</td>
             </tr>
-            <tr class="group-0">
-                <td>4</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></td>
-                <td>Timp</td>
-                <td>s</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>=</mo><mfrac><mi>q</mi><mi>I</mi></mfrac></mrow><annotation encoding="application/x-tex">t = \frac{q}{I}</annotation></semantics></math></td>
+
+            <tr>
+              <td>
+                <div class="seq-num">Etapa 4</div>
+                <div class="seq-name">Anunțarea temei și a obiectivelor</div>
+              </td>
+              <td style="text-align:center;">–</td>
+              <td>Se anunță și se scrie pe tablă titlul lecției. Se comunică obiectivele într-un limbaj accesibil elevilor:<br>
+                <em>„Vom învăța cum să aplicăm elementele geometrice cunoscute din matematică pentru a crea schițe de grădini și aranjamente florale."</em></td>
+              <td>
+                <div class="strat-line"><span class="strat-label">Metodă</span>Expunerea</div>
+                <div class="strat-line"><span class="strat-label">Mijloace</span>Tablă, marker/cretă</div>
+                <div class="strat-line"><span class="strat-label">Organizare</span>Frontal</div>
+              </td>
+              <td class="time-cell">1<span class="time-unit">min</span></td>
+              <td>–</td>
             </tr>
-            <tr class="group-1">
-                <td rowspan="3">Densități de sarcină</td>
-                <td>5</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ρ</mi><mi>s</mi></msub><mo stretchy="false">[</mo><mi>σ</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">\rho_s [\sigma]</annotation></semantics></math></td>
-                <td>Densitatea de sarcină pe suprafață</td>
-                <td>C/m²</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ρ</mi><mi>s</mi></msub><mo>=</mo><mfrac><mi>q</mi><mi>A</mi></mfrac></mrow><annotation encoding="application/x-tex">\rho_s = \frac{q}{A}</annotation></semantics></math></td>
+
+            <tr>
+              <td>
+                <div class="seq-num">Etapa 5</div>
+                <div class="seq-name">Prezentarea noului conținut</div>
+              </td>
+              <td style="text-align:center;"><span class="obj-pill">O1</span><span class="obj-pill">O2</span><span class="obj-pill">O3</span></td>
+              <td>Profesorul demonstrează la tablă, pas cu pas, construcția elementelor geometrice utilizând instrumentele de desen:<br>
+                <strong>1. Drepte și relații:</strong> paralele, perpendiculare, înclinate (cu rigla și echerul).<br>
+                <strong>2. Figuri bidimensionale:</strong> pătrat, triunghi, cerc (cu compasul și rigla).<br>
+                <strong>3. Aplicarea în peisagistică:</strong> liniile drepte delimitează alei și spații; liniile curbe sugerează armonie naturală; cercul → rondou; pătratul → bazin/parcelă.<br>
+                <strong>4. Aplicarea în aranjamente florale:</strong> forma triunghiulară → structura clasică a buchetului; forma sferică → buchete pentru mese.<br>
+                Se prezintă exemple din manualul clasei. Elevii notează informațiile esențiale în caiete.</td>
+              <td>
+                <div class="strat-line"><span class="strat-label">Metodă</span>Explicație, Demonstrație, Conversație</div>
+                <div class="strat-line"><span class="strat-label">Mijloace</span>Tablă, instrumente de desen, videoproiector, manual</div>
+                <div class="strat-line"><span class="strat-label">Organizare</span>Frontal</div>
+              </td>
+              <td class="time-cell">21<span class="time-unit">min</span></td>
+              <td>Observarea comportamentului nonverbal; adresarea de întrebări de verificare a înțelegerii; notarea în caiet.</td>
             </tr>
-            <tr class="group-1">
-                <td>6</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ρ</mi><mi>l</mi></msub><mo stretchy="false">[</mo><mi>λ</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">\rho_l [\lambda]</annotation></semantics></math></td>
-                <td>Densitatea de sarcină liniară</td>
-                <td>C/m</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ρ</mi><mi>l</mi></msub><mo>=</mo><mfrac><mi>q</mi><mi>L</mi></mfrac></mrow><annotation encoding="application/x-tex">\rho_l = \frac{q}{L}</annotation></semantics></math></td>
+
+            <tr>
+              <td>
+                <div class="seq-num">Etapa 6</div>
+                <div class="seq-name">Obținerea performanței</div>
+              </td>
+              <td style="text-align:center;"><span class="obj-pill">O1</span><span class="obj-pill">O2</span><span class="obj-pill">O3</span></td>
+              <td>Elevii rezolvă independent sarcinile de pe fișa de lucru:<br>
+                <em>a)</em> Trasarea unui set de drepte paralele, perpendiculare și concurente față de o dreaptă dată.<br>
+                <em>b)</em> Construirea unui cerc cu raza de 5 cm și a pătratului circumscris acestuia.<br>
+                <em>c)</em> Identificarea și marcarea elementelor geometrice dintr-o schiță dată de grădină și dintr-un aranjament floral.<br>
+                Profesorul circulă, îndrumă și verifică selectiv execuția.</td>
+              <td>
+                <div class="strat-line"><span class="strat-label">Metodă</span>Exercițiu practic, Studiu de caz</div>
+                <div class="strat-line"><span class="strat-label">Mijloace</span>Fișă de lucru, instrumente de desen</div>
+                <div class="strat-line"><span class="strat-label">Organizare</span>Individual</div>
+              </td>
+              <td class="time-cell">14<span class="time-unit">min</span></td>
+              <td>Verificare selectivă a fișelor; îndrumarea directă; evaluare prin observarea modului de lucru.</td>
             </tr>
-            <tr class="group-1">
-                <td>7</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ρ</mi><mi>v</mi></msub></mrow><annotation encoding="application/x-tex">\rho_v</annotation></semantics></math></td>
-                <td>Densitatea de sarcină pe volum</td>
-                <td>C/m³</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ρ</mi><mi>v</mi></msub><mo>=</mo><mfrac><mi>q</mi><mi>V</mi></mfrac></mrow><annotation encoding="application/x-tex">\rho_v = \frac{q}{V}</annotation></semantics></math></td>
+
+            <tr>
+              <td>
+                <div class="seq-num">Etapa 7</div>
+                <div class="seq-name">Asigurarea retenției și a transferului</div>
+              </td>
+              <td style="text-align:center;"><span class="obj-pill">O3</span></td>
+              <td>Se analizează 2–3 fișe de lucru, discutând eventualele erori. Întrebări de consolidare:<br>
+                <em>„Cum poate fi utilizată forma circulară într-un rondou de flori?"</em><br>
+                <em>„De ce este utilă simetria în proiectarea unei grădini?"</em><br>
+                Se prezintă tema pentru acasă din manual: <em>„Realizați un proiect de amenajare pentru un spațiu exterior (parc, grădină, curtea casei), pe o planșă, utilizând instrumente de geometrie, șabloane și creioane colorate."</em></td>
+              <td>
+                <div class="strat-line"><span class="strat-label">Metodă</span>Conversație, Analiză</div>
+                <div class="strat-line"><span class="strat-label">Mijloace</span>Fișele elevilor, manual</div>
+                <div class="strat-line"><span class="strat-label">Organizare</span>Frontal</div>
+              </td>
+              <td class="time-cell">4<span class="time-unit">min</span></td>
+              <td>Autoevaluare; răspunsuri orale la întrebările de consolidare.</td>
             </tr>
-            <tr class="group-2">
-                <td rowspan="8">Câmp electric și derivate</td>
-                <td>8</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>E</mi><mo>⃗</mo></mover></mrow><annotation encoding="application/x-tex">\vec{E}</annotation></semantics></math></td>
-                <td>Intensitatea câmpului electric</td>
-                <td>V/m</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>E</mi><mo>⃗</mo></mover><mo>=</mo><mfrac><mi>U</mi><mi>d</mi></mfrac></mrow><annotation encoding="application/x-tex">\vec{E} = \frac{U}{d}</annotation></semantics></math></td>
+
+            <tr>
+              <td>
+                <div class="seq-num">Etapa 8</div>
+                <div class="seq-name">Încheierea organizată a activității</div>
+              </td>
+              <td style="text-align:center;">–</td>
+              <td>Se formulează concluziile finale despre importanța cunoașterii elementelor geometrice în design și în viața cotidiană (arhitectură, peisagistică). Se apreciază verbal activitatea clasei. Se consemnează notele elevilor care s-au remarcat.</td>
+              <td>
+                <div class="strat-line"><span class="strat-label">Metodă</span>Conversație finală</div>
+                <div class="strat-line"><span class="strat-label">Mijloace</span>Catalog</div>
+                <div class="strat-line"><span class="strat-label">Organizare</span>Frontal</div>
+              </td>
+              <td class="time-cell">1<span class="time-unit">min</span></td>
+              <td>Aprecieri verbale; notarea în catalog.</td>
             </tr>
-            <tr class="group-2">
-                <td>9</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>D</mi><mo>⃗</mo></mover></mrow><annotation encoding="application/x-tex">\vec{D}</annotation></semantics></math></td>
-                <td>Inducția electrică</td>
-                <td>C/m²</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>D</mi><mo>⃗</mo></mover><mo>=</mo><mi>ϵ</mi><mo>⋅</mo><mover accent="true"><mi>E</mi><mo>⃗</mo></mover></mrow><annotation encoding="application/x-tex">\vec{D} = \epsilon \cdot \vec{E}</annotation></semantics></math></td>
-            </tr>
-            <tr class="group-2">
-                <td>10</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ϵ</mi></mrow><annotation encoding="application/x-tex">\epsilon</annotation></semantics></math></td>
-                <td>Permitivitatea electrică</td>
-                <td>F/m</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>D</mi><mo>⃗</mo></mover><mo>=</mo><mi>ϵ</mi><mo>⋅</mo><mover accent="true"><mi>E</mi><mo>⃗</mo></mover></mrow><annotation encoding="application/x-tex">\vec{D} = \epsilon \cdot \vec{E}</annotation></semantics></math></td>
-            </tr>
-            <tr class="group-2">
-                <td>11</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi mathvariant="normal">Φ</mi><mi>E</mi></msub></mrow><annotation encoding="application/x-tex">\Phi_e</annotation></semantics></math></td>
-                <td>Flux electric</td>
-                <td>V·m</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi mathvariant="normal">Φ</mi><mi>E</mi></msub><mo>=</mo><mover accent="true"><mi>E</mi><mo>⃗</mo></mover><mo>⋅</mo><mi>A</mi></mrow><annotation encoding="application/x-tex">\Phi = \vec{E} \cdot A</annotation></semantics></math></td>
-            </tr>
-            <tr class="group-2">
-                <td>12</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi></mrow><annotation encoding="application/x-tex">V</annotation></semantics></math></td>
-                <td>Potențial electric</td>
-                <td>V</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><mi>U</mi></mrow><annotation encoding="application/x-tex">V = U</annotation></semantics></math></td>
-            </tr>
-            <tr class="group-2">
-                <td>13</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></td>
-                <td>Moment dipolar electric</td>
-                <td>C·m</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>=</mo><mi>q</mi><mo>⋅</mo><mi>d</mi></mrow><annotation encoding="application/x-tex">p = q \cdot d</annotation></semantics></math></td>
-            </tr>
-            <tr class="group-2">
-                <td>14</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi></mrow><annotation encoding="application/x-tex">P</annotation></semantics></math></td>
-                <td>Polarizarea electrică</td>
-                <td>C/m²</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>=</mo><mfrac><mi>p</mi><mi>V</mi></mfrac></mrow><annotation encoding="application/x-tex">P = \frac{p}{V}</annotation></semantics></math></td>
-            </tr>
-            <tr class="group-2">
-                <td>15</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>F</mi><mo>⃗</mo></mover></mrow><annotation encoding="application/x-tex">\vec{F}</annotation></semantics></math></td>
-                <td>Forța electrică</td>
-                <td>N</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>F</mi><mo>⃗</mo></mover><mo>=</mo><mi>q</mi><mo>⋅</mo><mover accent="true"><mi>E</mi><mo>⃗</mo></mover></mrow><annotation encoding="application/x-tex">\vec{F} = q \cdot \vec{E}</annotation></semantics></math></td>
-            </tr>
-            <tr class="group-3">
-                <td rowspan="7">Mărimi magnetice</td>
-                <td>16</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>B</mi><mo>⃗</mo></mover></mrow><annotation encoding="application/x-tex">\vec{B}</annotation></semantics></math></td>
-                <td>Inducția magnetică</td>
-                <td>T</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>B</mi><mo>⃗</mo></mover><mo>=</mo><mi>μ</mi><mo>⋅</mo><mover accent="true"><mi>H</mi><mo>⃗</mo></mover></mrow><annotation encoding="application/x-tex">\vec{B} = \mu \cdot \vec{H}</annotation></semantics></math></td>
-            </tr>
-            <tr class="group-3">
-                <td>17</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>H</mi><mo>⃗</mo></mover></mrow><annotation encoding="application/x-tex">\vec{H}</annotation></semantics></math></td>
-                <td>Intensitatea câmpului magnetic</td>
-                <td>A/m</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>H</mi><mo>⃗</mo></mover><mo>=</mo><mfrac><mover accent="true"><mi>B</mi><mo>⃗</mo></mover><mi>μ</mi></mfrac></mrow><annotation encoding="application/x-tex">\vec{H} = \frac{\vec{B}}{\mu}</annotation></semantics></math></td>
-            </tr>
-            <tr class="group-3">
-                <td>18</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℱ</mi><mo stretchy="false">[</mo><mtext>MMF</mtext><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">\mathcal{F} [MMF]</annotation></semantics></math></td>
-                <td>Forța magnetomotoare</td>
-                <td>A·sp</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℱ</mi><mo>=</mo><mi>N</mi><mo>⋅</mo><mi>I</mi></mrow><annotation encoding="application/x-tex">\mathcal{F} = N \cdot I</annotation></semantics></math></td>
-            </tr>
-            <tr class="group-3">
-                <td>19</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi></mrow><annotation encoding="application/x-tex">\mu</annotation></semantics></math></td>
-                <td>Permeabilitatea magnetică</td>
-                <td>H/m</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>=</mo><mfrac><mover accent="true"><mi>B</mi><mo>⃗</mo></mover><mover accent="true"><mi>H</mi><mo>⃗</mo></mover></mfrac></mrow><annotation encoding="application/x-tex">\mu = \frac{\vec{B}}{\vec{H}}</annotation></semantics></math></td>
-            </tr>
-            </tr>
-                <tr class="group-3">
-                <td>20</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi mathvariant="normal">Φ</mi><mi>B</mi></msub></mrow><annotation encoding="application/x-tex">\Phi_B</annotation></semantics></math></td>
-                <td>Flux magnetic</td>
-                <td>Wb</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi mathvariant="normal">Φ</mi><mi>B</mi></msub><mo>=</mo><mover accent="true"><mi>B</mi><mo>⃗</mo></mover><mo>⋅</mo><mi>A</mi></mrow><annotation encoding="application/x-tex">\Phi_B = \vec{B} \cdot A</annotation></semantics></math></td>
-            </tr>
-            <tr class="group-3">
-                <td>21</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></td>
-                <td>Moment magnetic</td>
-                <td>A·m²</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>=</mo><mi>I</mi><mo>⋅</mo><mi>A</mi></mrow><annotation encoding="application/x-tex">m = I \cdot A</annotation></semantics></math></td>
-            </tr>
-            <tr class="group-3">
-                <td>22</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi></mrow><annotation encoding="application/x-tex">M</annotation></semantics></math></td>
-                <td>Polarizarea magnetică</td>
-                <td>A/m</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>=</mo><mfrac><mi>m</mi><mi>V</mi></mfrac></mrow><annotation encoding="application/x-tex">M = \frac{m}{V}</annotation></semantics></math></td>
-            <tr class="group-4">
-                <td rowspan="3">Densitate de curent și rezistență</td>
-                <td>23</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>J</mi><mo>⃗</mo></mover></mrow><annotation encoding="application/x-tex">\vec{J}</annotation></semantics></math></td>
-                <td>Densitatea de curent</td>
-                <td>A/m²</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>J</mi><mo>⃗</mo></mover><mo>=</mo><mfrac><mi>I</mi><mi>A</mi></mfrac></mrow><annotation encoding="application/x-tex">\vec{J} = \frac{I}{A}</annotation></semantics></math></td>
-            </tr>
-            <tr class="group-4">
-                <td>24</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></td>
-                <td>Rezistența electrică</td>
-                <td>Ω</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo>=</mo><mfrac><mi>U</mi><mi>I</mi></mfrac></mrow><annotation encoding="application/x-tex">R = \frac{U}{I}</annotation></semantics></math></td>
-            </tr>
-            <tr class="group-4">
-                <td>25</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi></mrow><annotation encoding="application/x-tex">\rho</annotation></semantics></math></td>
-                <td>Rezistivitate</td>
-                <td>Ω·m</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi><mo>=</mo><mi>R</mi><mo>⋅</mo><mfrac><mi>A</mi><mi>l</mi></mfrac></mrow><annotation encoding="application/x-tex">\rho = R \cdot \frac{A}{l}</annotation></semantics></math></td>
-            </tr>
-            <tr class="group-5">
-                <td rowspan="9">Proprietăți ale circuitelor</td>
-                <td>26</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi></mrow><annotation encoding="application/x-tex">L</annotation></semantics></math></td>
-                <td>Inductanța</td>
-                <td>H</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mo>=</mo><mfrac><mi>X</mi><mover accent="true"><mi>W</mi><mo>⃗</mo></mover></mfrac></mrow><annotation encoding="application/x-tex">L = \frac{X}{\vec{W}}</annotation></semantics></math></td>
-            </tr>
-            <tr class="group-5">
-                <td>27</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi></mrow><annotation encoding="application/x-tex">C</annotation></semantics></math></td>
-                <td>Capacitatea electrică</td>
-                <td>F</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>=</mo><mfrac><mi>I</mi><mrow><mi>U</mi><mo>⋅</mo><mover accent="true"><mi>W</mi><mo>⃗</mo></mover></mrow></mfrac></mrow><annotation encoding="application/x-tex">C = \frac{I}{U \cdot \vec{W}}</annotation></semantics></math></td>
-            </tr>
-            <tr class="group-5">
-                <td>28</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>W</mi><mo>⃗</mo></mover><mo stretchy="false">[</mo><mi>ω</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">\vec{W} [\omega]</annotation></semantics></math></td>
-                <td>Pulsația unghiulară</td>
-                <td>rad/s</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>W</mi><mo>⃗</mo></mover><mo>=</mo><mn>2</mn><mi>π</mi><mo>⋅</mo><mi>F</mi></mrow><annotation encoding="application/x-tex">\vec{W} = 2 \pi \cdot F</annotation></semantics></math></td>
-            </tr>
-            <tr class="group-5">
-                <td>29</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo stretchy="false">[</mo><mi>f</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">F [f]</annotation></semantics></math></td>
-                <td>Frecvență</td>
-                <td>Hz</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo>=</mo><mfrac><mover accent="true"><mi>W</mi><mo>⃗</mo></mover><mrow><mn>2</mn><mi>π</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">F = \frac{\vec{W}}{2 \pi}</annotation></semantics></math></td>
-            </tr>
-            <tr class="group-5">
-                <td>30</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi></mrow><annotation encoding="application/x-tex">X</annotation></semantics></math></td>
-                <td>Reactanța</td>
-                <td>Ω</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>=</mo><mover accent="true"><mi>W</mi><mo>⃗</mo></mover><mo>⋅</mo><mi>L</mi></mrow><annotation encoding="application/x-tex">X = \vec{W} \cdot L</annotation></semantics></math></td>
-            </tr>
-            <tr class="group-5">
-                <td>31</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Z</mi></mrow><annotation encoding="application/x-tex">Z</annotation></semantics></math></td>
-                <td>Impedanța</td>
-                <td>Ω</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Z</mi><mo>=</mo><mi>R</mi><mo>+</mo><mi>j</mi><mi>X</mi></mrow><annotation encoding="application/x-tex">Z = R + jX</annotation></semantics></math></td>
-            </tr>
-            <tr class="group-5">
-                <td>32</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi></mrow><annotation encoding="application/x-tex">G</annotation></semantics></math></td>
-                <td>Conductanța</td>
-                <td>S</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi><mo>=</mo><mfrac><mi>I</mi><mi>U</mi></mfrac></mrow><annotation encoding="application/x-tex">G = \frac{I}{U}</annotation></semantics></math></td>
-            </tr>
-            <tr class="group-5">
-                <td>33</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi></mrow><annotation encoding="application/x-tex">Y</annotation></semantics></math></td>
-                <td>Admitanța</td>
-                <td>S</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi><mo>=</mo><mi>G</mi><mo>+</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">Y = G + B</annotation></semantics></math></td>
-            </tr>
-            <tr class="group-5">
-                <td>34</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi></mrow><annotation encoding="application/x-tex">B</annotation></semantics></math></td>
-                <td>Susceptanța</td>
-                <td>S</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mo>=</mo><mover accent="true"><mi>W</mi><mo>⃗</mo></mover><mo>⋅</mo><mi>C</mi></mrow><annotation encoding="application/x-tex">B = \vec{W} \cdot C</annotation></semantics></math></td>
-            </tr>
-            <tr class="group-6">
-                <td rowspan="4">Mărimi de putere</td>
-                <td>35</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi></mrow><annotation encoding="application/x-tex">P</annotation></semantics></math></td>
-                <td>Putere activă</td>
-                <td>W</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>=</mo><mi>U</mi><mo>⋅</mo><mi>I</mi><mo>⋅</mo><mi>cos</mi><mo>⁡</mo><mi>ϕ</mi></mrow><annotation encoding="application/x-tex">P = U \cdot I \cdot \cos\phi</annotation></semantics></math></td>
-            </tr>
-            <tr class="group-6">
-                <td>36</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi></mrow><annotation encoding="application/x-tex">Q</annotation></semantics></math></td>
-                <td>Putere reactivă</td>
-                <td>VAR</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo>=</mo><mi>U</mi><mo>⋅</mo><mi>I</mi><mo>⋅</mo><mi>sin</mi><mo>⁡</mo><mi>ϕ</mi></mrow><annotation encoding="application/x-tex">Q = U \cdot I \cdot \sin\phi</annotation></semantics></math></td>
-            </tr>
-            <tr class="group-6">
-                <td>37</td> <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi></mrow><annotation encoding="application/x-tex">S</annotation></semantics></math></td>
-                <td>Putere aparentă</td>
-                <td>VA</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mpadded voffset="-0.5em"><mi>S</mi><mo>=</mo></mpadded><msqrt><mpadded voffset="-0.5em"><mrow><msup><mi>P</mi><mn>2</mn></msup><mo>+</mo><msup><mi>Q</mi><mn>2</mn></msup></mrow></mpadded></msqrt></mrow></math></td>
-            </tr>
-            <tr class="group-6">
-                <td>38</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi></mrow><annotation encoding="application/x-tex">D</annotation></semantics></math></td>
-                <td>Putere deformată</td>
-                <td>VAD</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>D</mi><mn>2</mn></msup><mo>=</mo><msup><mi>S</mi><mn>2</mn></msup><mo>−</mo><msup><mi>P</mi><mn>2</mn></msup><mo>−</mo><msup><mi>Q</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">D^2 = S^2 - P^2 - Q^2</annotation></semantics></math></td>
-            </tr>
-            <tr class="group-7">
-                <td rowspan="1">Mărimi avansate</td>
-                <td>39</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>S</mi><mo>⃗</mo></mover></mrow><annotation encoding="application/x-tex">\vec{S}</annotation></semantics></math></td>
-                <td>Vectorul Poynting</td>
-                <td>W/m²</td>
-                <td><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>S</mi><mo>⃗</mo></mover><mo>=</mo><mover accent="true"><mi>E</mi><mo>⃗</mo></mover><mo>×</mo><mover accent="true"><mi>H</mi><mo>⃗</mo></mover></mrow><annotation encoding="application/x-tex">\vec{S} = \vec{E} \times \vec{H}</annotation></semantics></math></td>
-            </tr>
-        </tbody>
-    </table>
+
+          </tbody>
+        </table>
+      </div>
+    </div><!-- /section -->
+
+  </div><!-- /body-area -->
+
+  <!-- Footer -->
+  <div class="footer-strip">
+    <div class="bib">
+      <strong>Bibliografie:</strong>&nbsp;
+      Manual <em>Educație Tehnologică și Aplicații Practice</em>, clasa a V-a, Ed. Litera, 2022 &amp; Ed. Corint Logistic (disponibile pe manuale.edu.ro) &nbsp;·&nbsp;
+      Programa școlară – OMEN, aprobată prin ordin ministerial &nbsp;·&nbsp;
+      ISE – <em>Programa Educație tehnologică și aplicații practice</em>, 2017
+    </div>
+    <div class="footer-sig">
+      Durata totală: <strong>50 min</strong><br>
+      Tipul lecției: transmitere și<br>însușire de noi cunoștințe
+    </div>
+  </div>
+
+</div><!-- /page -->
 </body>
 </html>
