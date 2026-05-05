@@ -19,18 +19,12 @@
     --row-a:  #f0ede8;
     --row-b:  #ffffff;
     --head-bg:#e8e2d8;
-    /* NEW: answer highlight colors */
-    --q-bg:   #fef9ec;
-    --q-border: #d4a72c;
-    --ans-bg: #eef7f4;
-    --ans-border: #2e7d6e;
   }
 
   @media print {
     body { background: #fff; }
     .page { box-shadow: none; max-width: 100%; padding: 18mm 18mm 18mm 18mm; }
     .cover-band { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-    .qa-block { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   }
 
   body {
@@ -250,12 +244,12 @@
   thead th:last-child { border-right: none; }
 
   /* column widths */
-  col.c-seq     { width: 13%; }
-  col.c-obj     { width: 8%; }
-  col.c-content { width: 34%; }
-  col.c-strat   { width: 17%; }
-  col.c-time    { width: 6%; }
-  col.c-eval    { width: 22%; }
+  col.c-seq     { width: 14%; }
+  col.c-obj     { width: 9%; }
+  col.c-content { width: 32%; }
+  col.c-strat   { width: 19%; }
+  col.c-time    { width: 7%; }
+  col.c-eval    { width: 19%; }
 
   tbody tr:nth-child(odd)  td { background: var(--row-a); }
   tbody tr:nth-child(even) td { background: var(--row-b); }
@@ -319,79 +313,6 @@
 
   em { color: var(--teal); font-style: italic; }
 
-  /* ── NEW: Q&A blocks ── */
-  /* Container that wraps one Q + one A */
-  .qa-block {
-    margin-top: 8px;
-    margin-bottom: 4px;
-    border-radius: 4px;
-    overflow: hidden;
-    border: 1px solid var(--q-border);
-  }
-  .qa-question {
-    background: var(--q-bg);
-    border-left: 3px solid var(--q-border);
-    padding: 6px 10px;
-    font-size: 12px;
-    font-style: italic;
-    color: #5a4010;
-  }
-  .qa-question::before {
-    content: '🗣 ';
-    font-style: normal;
-  }
-  .qa-answer {
-    background: var(--ans-bg);
-    border-left: 3px solid var(--ans-border);
-    padding: 6px 10px;
-    font-size: 12px;
-    color: #1a3d35;
-  }
-  .qa-answer::before {
-    content: '✔ Răspuns dezirabil: ';
-    font-weight: 700;
-    font-style: normal;
-    color: var(--teal);
-  }
-
-  /* NEW: eval-list for cleaner evaluation column entries */
-  .eval-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  .eval-list li {
-    position: relative;
-    padding-left: 14px;
-    margin-bottom: 5px;
-    font-size: 12px;
-    line-height: 1.45;
-  }
-  .eval-list li::before {
-    content: '▸';
-    position: absolute;
-    left: 0;
-    color: var(--gold);
-    font-size: 10px;
-    top: 2px;
-  }
-  .eval-tag {
-    display: inline-block;
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: .8px;
-    text-transform: uppercase;
-    background: var(--navy);
-    color: #fff;
-    padding: 1px 5px;
-    border-radius: 2px;
-    margin-bottom: 2px;
-  }
-  .eval-tag.oral   { background: var(--teal); }
-  .eval-tag.obs    { background: var(--muted); }
-  .eval-tag.auto   { background: var(--gold); color: #fff; }
-  .eval-tag.select { background: #6b3fa0; }
-
   /* ── Footer strip ── */
   .footer-strip {
     background: var(--light);
@@ -417,39 +338,6 @@
     white-space: nowrap;
     margin-left: 32px;
   }
-
-  /* ── Legend ── */
-  .legend {
-    background: var(--light);
-    border: 1px solid var(--border);
-    border-radius: 3px;
-    padding: 10px 18px;
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    align-items: center;
-    margin-bottom: 18px;
-  }
-  .legend-title {
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-right: 6px;
-  }
-  .legend-item {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 11.5px;
-    color: var(--text);
-  }
-  .legend-swatch {
-    width: 12px; height: 12px; border-radius: 2px; flex-shrink: 0;
-  }
-  .ls-q  { background: var(--q-bg); border: 1.5px solid var(--q-border); }
-  .ls-a  { background: var(--ans-bg); border: 1.5px solid var(--ans-border); }
 </style>
 </head>
 <body>
@@ -484,7 +372,7 @@
         <span class="meta-key">Subiectul lecției</span>
         <span class="meta-val">Elemente de desen geometric aplicate la elemente de peisagistică și aranjamente florale</span>
       </div>
-      <div class="meta-item">
+            <div class="meta-item">
         <span class="meta-key">Tipul lecției</span>
         <span class="meta-val">Lecție de transmitere și însușire de noi cunoștințe</span>
       </div>
@@ -570,13 +458,6 @@
       </div>
     </div>
 
-    <!-- Legend for Q&A -->
-    <div class="legend">
-      <span class="legend-title">Legendă</span>
-      <div class="legend-item"><span class="legend-swatch ls-q"></span> Întrebare adresată elevilor</div>
-      <div class="legend-item"><span class="legend-swatch ls-a"></span> Răspuns dezirabil (așteptat)</div>
-    </div>
-
     <!-- Main table -->
     <div class="section">
       <div class="section-title">Desfășurarea lecției</div>
@@ -602,137 +483,79 @@
           </thead>
           <tbody>
 
-            <!-- ══ ETAPA 1 ══ -->
             <tr>
               <td>
                 <div class="seq-num">Etapa 1</div>
                 <div class="seq-name">Moment organizatoric</div>
               </td>
               <td style="text-align:center;">–</td>
-              <td>Se asigură climatul optim pentru desfășurarea activității: aerisirea sălii, așezarea elevilor în bănci, verificarea prezenței și a existenței materialelor necesare (instrumente de desen, caiete).
-                <!-- [ADĂUGAT] Întrebare de verificare a materialelor -->
-                <div class="qa-block">
-                  <div class="qa-question">„Cine nu a adus astăzi instrumentele de desen? Ce aveți lipsă?"</div>
-                  <div class="qa-answer">Elevii ridică mâna și precizează ce lipsește; profesorul ia notă și asigură materiale de rezervă dacă este posibil.</div>
-                </div>
-              </td>
+              <td>Se asigură climatul optim pentru desfășurarea activității: aerisirea sălii, așezarea elevilor în bănci, verificarea prezenței și a existenței materialelor necesare (instrumente de desen, caiete).</td>
               <td>
                 <div class="strat-line"><span class="strat-label">Metodă</span>Conversația</div>
                 <div class="strat-line"><span class="strat-label">Mijloace</span>Catalog</div>
                 <div class="strat-line"><span class="strat-label">Organizare</span>Frontal</div>
               </td>
               <td class="time-cell">3<span class="time-unit">min</span></td>
-              <td>
-                <ul class="eval-list">
-                  <li><span class="eval-tag obs">Observație</span><br>Comportament verbal și nonverbal al elevilor la intrarea în clasă.</li>
-                  <li><span class="eval-tag oral">Oral</span><br>Confirmare verbală a prezenței materialelor necesare.</li><!-- [ADĂUGAT] -->
-                </ul>
-              </td>
+              <td>Observarea comportamentului verbal și nonverbal al elevilor.</td>
             </tr>
 
-            <!-- ══ ETAPA 2 ══ -->
             <tr>
               <td>
                 <div class="seq-num">Etapa 2</div>
                 <div class="seq-name">Verificarea cunoștințelor anterioare</div>
               </td>
               <td style="text-align:center;">–</td>
-              <td>Profesorul desenează pe tablă tipuri de linii și unghiuri, solicitând elevilor să le identifice și să le denumească (voluntar sau nominalizat).
-                <!-- [ADĂUGAT] Q&A explicate pentru fiecare tip de element -->
-                <div class="qa-block">
-                  <div class="qa-question">„Ce fel de linii sunt acestea?" <em>(arată două drepte care nu se intersectează)</em></div>
-                  <div class="qa-answer">Linii paralele – drepte aflate în același plan care nu se intersectează niciodată.</div>
-                </div>
-                <div class="qa-block">
-                  <div class="qa-question">„Dar aceste două linii care formează un unghi de 90°?"</div>
-                  <div class="qa-answer">Linii perpendiculare – se intersectează formând un unghi drept (90°).</div>
-                </div>
-                <div class="qa-block">
-                  <div class="qa-question">„Cum se numește un unghi mai mic de 90°? Dar mai mare de 90°?"</div>
-                  <div class="qa-answer">Unghi ascuțit (&lt;90°); unghi obtuz (&gt;90°).</div>
-                </div>
-                <div class="qa-block">
-                  <div class="qa-question">„Numiți o figură geometrică cu 4 laturi egale și 4 unghiuri drepte."</div>
-                  <div class="qa-answer">Pătratul.</div>
-                </div>
-              </td>
+              <td>Profesorul desenează pe tablă tipuri de linii și unghiuri, solicitând elevilor să le identifice și să le denumească (voluntar sau nominalizat):<br>
+                <em>– linii: paralele, perpendiculare, concurente</em><br>
+                <em>– unghiuri: ascuțit, drept, obtuz, complementar, suplementar</em><br>
+                <em>– figuri: pătrat, triunghi, cub</em><br>
+                Se discută caracteristicile fiecăreia, fixând cunoștințele necesare lecției noi.</td>
               <td>
                 <div class="strat-line"><span class="strat-label">Metodă</span>Conversație, Observație, Explicație</div>
                 <div class="strat-line"><span class="strat-label">Mijloace</span>Tablă, cretă, riglă</div>
                 <div class="strat-line"><span class="strat-label">Organizare</span>Frontal</div>
               </td>
               <td class="time-cell">4<span class="time-unit">min</span></td>
-              <td>
-                <ul class="eval-list">
-                  <li><span class="eval-tag oral">Oral</span><br>Chestionare orală cu aprecieri verbale imediate.</li>
-                  <li><span class="eval-tag obs">Observație</span><br>Identificarea lacunelor frecvente pentru a le relua la Etapa 5.</li><!-- [ADĂUGAT] -->
-                </ul>
-              </td>
+              <td>Chestionare orală; aprecieri verbale.</td>
             </tr>
 
-            <!-- ══ ETAPA 3 ══ -->
             <tr>
               <td>
                 <div class="seq-num">Etapa 3</div>
                 <div class="seq-name">Captarea atenției</div>
               </td>
               <td style="text-align:center;"><span class="obj-pill">O3</span></td>
-              <td>Se proiectează imagini sugestive cu:
-                <em>(a) designuri de grădini și parcuri</em> utilizând forme geometrice clare (dreptunghiuri, cercuri, linii drepte);
-                <em>(b) aranjamente florale</em> moderne care integrează geometria în structura lor.<br><br>
-                <!-- [ADĂUGAT] Întrebare-problemă cu răspuns dezirabil detaliat -->
-                <div class="qa-block">
-                  <div class="qa-question">„Unde vedeți geometria în aceste imagini? Indicați concret ce forme recunoașteți."</div>
-                  <div class="qa-answer">Elevii identifică: alei drepte/paralele; rondouri circulare; parcele dreptunghiulare/pătrate; simetria axială a grădinii; forma triunghiulară a buchetului; structura sferică a aranjamentelor de masă.</div>
-                </div>
-                <div class="qa-block">
-                  <div class="qa-question">„De ce credeți că arhitecții peisagiști folosesc forme geometrice regulate în proiectarea grădinilor?"</div>
-                  <div class="qa-answer">Pentru a crea ordine, estetică și pentru a putea calcula cu precizie suprafețele și distanțele dintre plante.</div>
-                </div>
-              </td>
+              <td>Se proiectează imagini sugestive cu:<br>
+                <em>(a) designuri de grădini și parcuri</em> utilizând forme geometrice clare (dreptunghiuri, cercuri, linii drepte);<br>
+                <em>(b) aranjamente florale</em> moderne care integrează geometria în structura lor.<br>
+                Întrebare-problemă: <em>„Unde vedeți geometria în aceste imagini?"</em><br>
+                <b>Răspuns dezirabil:</b> Elevii identifică: alei drepte/paralele; rondouri circulare; parcele dreptunghiulare/pătrate; simetria axială a grădinii; forma triunghiulară a buchetului; structura sferică a aranjamentelor de masă.</td>
               <td>
                 <div class="strat-line"><span class="strat-label">Metodă</span>Observație, Conversație, Expunere</div>
                 <div class="strat-line"><span class="strat-label">Mijloace</span>Calculator, videoproiector, prezentare PPT</div>
                 <div class="strat-line"><span class="strat-label">Organizare</span>Frontal</div>
               </td>
               <td class="time-cell">4<span class="time-unit">min</span></td>
-              <td>
-                <ul class="eval-list">
-                  <li><span class="eval-tag obs">Observație</span><br>Comportament verbal și nonverbal; gradul de implicare al elevilor în discuție.</li>
-                  <li><span class="eval-tag oral">Oral</span><br>Calitatea și varietatea formelor geometrice identificate de elevi în imagini.</li><!-- [ADĂUGAT] -->
-                </ul>
-              </td>
+              <td>Observarea comportamentului verbal și nonverbal al elevilor.</td>
             </tr>
 
-            <!-- ══ ETAPA 4 ══ -->
             <tr>
               <td>
                 <div class="seq-num">Etapa 4</div>
                 <div class="seq-name">Anunțarea temei și a obiectivelor</div>
               </td>
               <td style="text-align:center;">–</td>
-              <td>Se anunță și se scrie pe tablă titlul lecției. Se comunică obiectivele într-un limbaj accesibil elevilor:<br><br>
-                <em>„Vom învăța cum să aplicăm elementele geometrice cunoscute din matematică pentru a crea schițe de grădini și aranjamente florale."</em>
-                <!-- [ADĂUGAT] Întrebare de anticipare -->
-                <div class="qa-block">
-                  <div class="qa-question">„Ce instrumente de desen credeți că vom folosi cel mai mult astăzi și de ce?"</div>
-                  <div class="qa-answer">Rigla (pentru drepte), echerul (pentru unghiuri drepte/perpendiculare), compasul (pentru cercuri), raportorul (pentru unghiuri); fiecare instrument are o funcție precisă în construcțiile geometrice.</div>
-                </div>
-              </td>
+              <td>Se anunță și se scrie pe tablă titlul lecției. Se comunică obiectivele într-un limbaj accesibil elevilor:<br>
+                <em>„Vom învăța cum să aplicăm elementele geometrice cunoscute din matematică pentru a crea schițe de grădini și aranjamente florale."</em></td>
               <td>
                 <div class="strat-line"><span class="strat-label">Metodă</span>Expunerea</div>
                 <div class="strat-line"><span class="strat-label">Mijloace</span>Tablă, marker/cretă</div>
                 <div class="strat-line"><span class="strat-label">Organizare</span>Frontal</div>
               </td>
               <td class="time-cell">1<span class="time-unit">min</span></td>
-              <td>
-                <ul class="eval-list">
-                  <li><span class="eval-tag oral">Oral</span><br>Răspuns la întrebarea de anticipare – evidențiază cunoștințele prealabile ale elevilor despre instrumente.</li><!-- [ADĂUGAT] -->
-                </ul>
-              </td>
+              <td>–</td>
             </tr>
 
-            <!-- ══ ETAPA 5 ══ -->
             <tr>
               <td>
                 <div class="seq-num">Etapa 5</div>
@@ -743,37 +566,17 @@
                 <strong>1. Drepte și relații:</strong> paralele, perpendiculare, înclinate (cu rigla și echerul).<br>
                 <strong>2. Figuri bidimensionale:</strong> pătrat, triunghi, cerc (cu compasul și rigla).<br>
                 <strong>3. Aplicarea în peisagistică:</strong> liniile drepte delimitează alei și spații; liniile curbe sugerează armonie naturală; cercul → rondou; pătratul → bazin/parcelă.<br>
-                <strong>4. Aplicarea în aranjamente florale:</strong> forma triunghiulară → structura clasică a buchetului; forma sferică → buchete pentru mese.<br><br>
-                <!-- [ADĂUGAT] Întrebări de verificare a înțelegerii intercalate în demonstrație -->
-                <div class="qa-block">
-                  <div class="qa-question">„<em>(după demonstrarea paralelelor)</em> Cum pot verifica că două drepte trasate sunt cu adevărat paralele?"</div>
-                  <div class="qa-answer">Măsurând distanța perpendiculară dintre ele în mai multe puncte – dacă distanța este identică, dreptele sunt paralele.</div>
-                </div>
-                <div class="qa-block">
-                  <div class="qa-question">„<em>(după construirea cercului)</em> Ce reprezintă raza unui cerc și cum o determinăm cu compasul?"</div>
-                  <div class="qa-answer">Raza este distanța de la centrul cercului la orice punct de pe circumferință; cu compasul, deschidem instrumentul exact la lungimea razei dorite înainte de a trasa cercul.</div>
-                </div>
-                <div class="qa-block">
-                  <div class="qa-question">„Dacă un rondou de flori are forma unui cerc cu raza de 2 m, ce instrument de desen vom folosi la schiță și la ce scară?"</div>
-                  <div class="qa-answer">Compasul; stabilim o scară (ex. 1 cm = 0,5 m), deci raza în desen va fi de 4 cm.</div>
-                </div>
-                <br>Se prezintă exemple din manualul clasei. Elevii notează informațiile esențiale în caiete.</td>
+                <strong>4. Aplicarea în aranjamente florale:</strong> forma triunghiulară → structura clasică a buchetului; forma sferică → buchete pentru mese.<br>
+                Se prezintă exemple din manualul clasei. Elevii notează informațiile esențiale în caiete.</td>
               <td>
                 <div class="strat-line"><span class="strat-label">Metodă</span>Explicație, Demonstrație, Conversație</div>
                 <div class="strat-line"><span class="strat-label">Mijloace</span>Tablă, instrumente de desen, videoproiector, manual</div>
                 <div class="strat-line"><span class="strat-label">Organizare</span>Frontal</div>
               </td>
               <td class="time-cell">18<span class="time-unit">min</span></td>
-              <td>
-                <ul class="eval-list">
-                  <li><span class="eval-tag obs">Observație</span><br>Comportament nonverbal; mimică de nedumerire → profesorul reia explicația.</li>
-                  <li><span class="eval-tag oral">Oral</span><br>Întrebări de verificare a înțelegerii intercalate în demonstrație (răspunsuri dezirabile notate în scenariu).</li>
-                  <li><span class="eval-tag obs">Observație</span><br>Verificarea notelor din caiet la 2–3 elevi în timpul demonstrației.</li><!-- [ADĂUGAT] -->
-                </ul>
-              </td>
+              <td>Observarea comportamentului nonverbal; adresarea de întrebări de verificare a înțelegerii; notarea în caiet.</td>
             </tr>
 
-            <!-- ══ ETAPA 6 ══ -->
             <tr>
               <td>
                 <div class="seq-num">Etapa 6</div>
@@ -783,97 +586,52 @@
               <td>Elevii rezolvă independent sarcinile de pe fișa de lucru:<br>
                 <em>a)</em> Trasarea unui set de drepte paralele, perpendiculare și concurente față de o dreaptă dată.<br>
                 <em>b)</em> Construirea unui cerc cu raza de 5 cm și a pătratului circumscris acestuia.<br>
-                <em>c)</em> Identificarea și marcarea elementelor geometrice dintr-o schiță dată de grădină și dintr-un aranjament floral.<br><br>
-                Profesorul circulă, îndrumă și verifică selectiv execuția.
-                <!-- [ADĂUGAT] Întrebări de îndrumare individuală -->
-                <div class="qa-block">
-                  <div class="qa-question">„<em>(la elevii care au dificultăți la sarcina b)</em> Care este prima etapă în construirea unui cerc cu compasul?"</div>
-                  <div class="qa-answer">Marcarea centrului cercului pe foaie, deschiderea compasului la mărimea razei (5 cm), fixarea vârfului în centru și trasarea circumferinței.</div>
-                </div>
-                <div class="qa-block">
-                  <div class="qa-question">„<em>(la verificarea fișei)</em> Ce formă geometrică ai folosit pentru a reprezenta aleea principală din schița de grădină?"</div>
-                  <div class="qa-answer">Două drepte paralele (care delimitează lățimea aleii); distanța dintre ele reprezintă lățimea la scara aleasă.</div>
-                </div>
-              </td>
+                <em>c)</em> Identificarea și marcarea elementelor geometrice dintr-o schiță dată de grădină și dintr-un aranjament floral.<br>
+                Profesorul circulă, îndrumă și verifică selectiv execuția.</td>
               <td>
                 <div class="strat-line"><span class="strat-label">Metodă</span>Exercițiu practic, Studiu de caz</div>
                 <div class="strat-line"><span class="strat-label">Mijloace</span>Fișă de lucru, instrumente de desen</div>
                 <div class="strat-line"><span class="strat-label">Organizare</span>Individual</div>
               </td>
               <td class="time-cell">15<span class="time-unit">min</span></td>
-              <td>
-                <ul class="eval-list">
-                  <li><span class="eval-tag select">Selectiv</span><br>Verificarea selectivă a fișelor în timp ce elevii lucrează; îndrumare directă.</li>
-                  <li><span class="eval-tag obs">Observație</span><br>Modul de utilizare a instrumentelor de desen (poziție corectă a compasului, a echerului).</li>
-                  <li><span class="eval-tag oral">Oral</span><br>Întrebări de îndrumare individuale pentru elevii cu dificultăți (răspunsuri dezirabile în scenariu).</li><!-- [ADĂUGAT] -->
-                  <li><span class="eval-tag obs">Observație</span><br>Precizia și acuratețea construcțiilor geometrice pe fișă.</li><!-- [ADĂUGAT] -->
-                </ul>
-              </td>
+              <td>Verificare selectivă a fișelor; îndrumarea directă; evaluare prin observarea modului de lucru.</td>
             </tr>
 
-            <!-- ══ ETAPA 7 ══ -->
             <tr>
               <td>
                 <div class="seq-num">Etapa 7</div>
                 <div class="seq-name">Asigurarea retenției și a transferului</div>
               </td>
               <td style="text-align:center;"><span class="obj-pill">O3</span></td>
-              <td>Se analizează 2–3 fișe de lucru, discutând eventualele erori. Întrebări de consolidare:
-                <div class="qa-block">
-                  <div class="qa-question">„Cum poate fi utilizată forma circulară într-un rondou de flori?"</div>
-                  <div class="qa-answer">Rondoul are formă circulară; centrul cercului indică centrul decorativ (ex. un arbust), iar circumferința delimitează marginea plantațiilor; distanța de la centru la margine (raza) determină dimensiunea rondoului.</div>
-                </div>
-                <div class="qa-block">
-                  <div class="qa-question">„De ce este utilă simetria în proiectarea unei grădini?"</div>
-                  <div class="qa-answer">Simetria creează un aspect estetic echilibrat, facilitează calculul suprafețelor (se calculează jumătate și se dublează) și simplifică plantarea simetrică a speciilor pe cele două jumătăți.</div>
-                </div>
-                <div class="qa-block">
-                  <div class="qa-question">„Numiți o situație din viața reală – în afara grădinăritului – unde ați mai întâlnit forme geometrice aplicate în design."</div>
-                  <div class="qa-answer">Răspunsuri acceptabile: pavaje de parcuri, mozaicuri, fațade de clădiri, designul interior al camerelor, planurile orașelor, parchetul, ornamentele de pe covoare etc.</div>
-                </div>
-                <br>Se prezintă tema pentru acasă: <em>„Realizați un proiect de amenajare pentru un spațiu exterior (parc, grădină, curtea casei), pe o planșă, utilizând instrumente de geometrie, șabloane și creioane colorate."</em>
-              </td>
+              <td>Se analizează 2–3 fișe de lucru, discutând eventualele erori. Întrebări de consolidare:<br>
+                <em>„Cum poate fi utilizată forma circulară într-un rondou de flori?"</em><br>
+                <b>Răspuns dezirabil:</b> Rondoul are formă circulară; centrul cercului indică centrul decorativ (ex. un arbust), iar circumferința delimitează marginea plantațiilor; distanța de la centru la margine (raza) determină dimensiunea rondoului.<br>
+                <em>„De ce este utilă simetria în proiectarea unei grădini?"</em><br>
+                <b>Răspuns dezirabil:</b> Simetria creează un aspect estetic echilibrat, facilitează calculul suprafețelor (se calculează jumătate și se dublează) și simplifică plantarea simetrică a speciilor pe cele două jumătăți.<br>
+                Se prezintă tema pentru acasă din manual: <em>„Realizați un proiect de amenajare pentru un spațiu exterior (parc, grădină, curtea casei), pe o planșă, utilizând instrumente de geometrie, șabloane și creioane colorate."</em></td>
               <td>
                 <div class="strat-line"><span class="strat-label">Metodă</span>Conversație, Analiză</div>
                 <div class="strat-line"><span class="strat-label">Mijloace</span>Fișele elevilor, manual</div>
                 <div class="strat-line"><span class="strat-label">Organizare</span>Frontal</div>
               </td>
               <td class="time-cell">4<span class="time-unit">min</span></td>
-              <td>
-                <ul class="eval-list">
-                  <li><span class="eval-tag auto">Autoevaluare</span><br>Elevii compară răspunsurile proprii cu răspunsurile dezirabile discutate frontal.</li>
-                  <li><span class="eval-tag oral">Oral</span><br>Răspunsuri la întrebările de consolidare; calitatea raționamentului demonstrează nivelul de transfer al cunoștințelor.</li>
-                  <li><span class="eval-tag obs">Observație</span><br>Corectarea greșelilor tipice identificate în fișele analizate la tablă.</li><!-- [ADĂUGAT] -->
-                </ul>
-              </td>
+              <td>Autoevaluare; răspunsuri orale la întrebările de consolidare.</td>
             </tr>
 
-            <!-- ══ ETAPA 8 ══ -->
             <tr>
               <td>
                 <div class="seq-num">Etapa 8</div>
                 <div class="seq-name">Încheierea organizată a activității</div>
               </td>
               <td style="text-align:center;">–</td>
-              <td>Se formulează concluziile finale despre importanța cunoașterii elementelor geometrice în design și în viața cotidiană (arhitectură, peisagistică). Se apreciază verbal activitatea clasei. Se consemnează notele elevilor care s-au remarcat.
-                <!-- [ADĂUGAT] Întrebare de sinteză finală -->
-                <div class="qa-block">
-                  <div class="qa-question">„Dacă ar fi să rezumați lecția de astăzi într-o singură propoziție, ce ați spune?"</div>
-                  <div class="qa-answer">Răspuns dezirabil (model): „Elementele de geometrie – drepte, cercuri, figuri plane – sunt instrumente esențiale pentru a proiecta ordonat și estetic spații verzi și aranjamente florale."</div>
-                </div>
-              </td>
+              <td>Se formulează concluziile finale despre importanța cunoașterii elementelor geometrice în design și în viața cotidiană (arhitectură, peisagistică). Se apreciază verbal activitatea clasei. Se consemnează numele elevilor care s-au remarcat.</td>
               <td>
                 <div class="strat-line"><span class="strat-label">Metodă</span>Conversație finală</div>
                 <div class="strat-line"><span class="strat-label">Mijloace</span>Catalog</div>
                 <div class="strat-line"><span class="strat-label">Organizare</span>Frontal</div>
               </td>
               <td class="time-cell">1<span class="time-unit">min</span></td>
-              <td>
-                <ul class="eval-list">
-                  <li><span class="eval-tag oral">Oral</span><br>Aprecieri verbale generale și individuale; notarea în catalog.</li>
-                  <li><span class="eval-tag auto">Autoevaluare</span><br>Întrebare de sinteză finală – reflecție personală asupra lecției (răspuns dezirabil în scenariu).</li><!-- [ADĂUGAT] -->
-                </ul>
-              </td>
+              <td>Aprecieri verbale; notarea în catalog.</td>
             </tr>
 
           </tbody>
